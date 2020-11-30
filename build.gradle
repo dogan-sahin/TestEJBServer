@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'ear'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://mvnrepository.com/artifact/javax/javaee-api
+    providedCompile group: 'javax', name: 'javaee-api', version: '7.0'
+
+    // https://mvnrepository.com/artifact/javax.ejb/javax.ejb-api
+    compile group: 'javax.ejb', name: 'javax.ejb-api', version: '3.2.2'
+
+    compile files("${project.projectDir}/libs/TestEJBShare.jar")
+
+    // https://mvnrepository.com/artifact/org.wildfly.bom/wildfly-jakartaee8-with-tools-builder
+    compile group: 'org.wildfly.bom', name: 'wildfly-jakartaee8-with-tools-builder', version: '21.0.1.Final', ext: 'pom'
+
+    // https://mvnrepository.com/artifact/org.jboss.spec.javax.annotation/jboss-annotations-api_1.3_spec
+    compile group: 'org.jboss.spec.javax.annotation', name: 'jboss-annotations-api_1.3_spec', version: '2.0.1.Final'
+
+    // https://mvnrepository.com/artifact/org.jboss.spec.javax.ejb/jboss-ejb-api_3.2_spec
+    providedCompile group: 'org.jboss.spec.javax.ejb', name: 'jboss-ejb-api_3.2_spec', version: '2.0.0.Final'
+}
+
+artifacts {
+    archives jar
+    archives war
+}
+
+
