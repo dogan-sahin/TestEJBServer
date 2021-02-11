@@ -9,6 +9,6 @@ public class EJBTest implements EJBTestRemote{
 
     @Override
     public String getName(String s) {
-        return "name is: " + s;
+        return "Hello World from: " + s;
     }
 }
